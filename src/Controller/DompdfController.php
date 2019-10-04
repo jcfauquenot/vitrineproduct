@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\FormulaireRepository; 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Dompdf\Dompdf;
@@ -13,9 +14,13 @@ class DompdfController extends AbstractController
     /**
      * @Route("/dompdf", name="dompdf")
      */
-    public function index()
+    public function index(FormulaireRepository $formulaire)
     {
         // configure Dompdf with option 
+
+        $repository = $formulaire->findAll();
+
+        // dump($repository);die;
 
         $pdfOptions = new Options();
         $pdfOptions->set('defaultFont', 'Arial');
