@@ -23,8 +23,6 @@ class DompdfController extends AbstractController
         // configure Dompdf with option 
         // donnee repository 
 
-
-
         $repository = $formulaire->findAll();
 
         // dump($repository);die;
