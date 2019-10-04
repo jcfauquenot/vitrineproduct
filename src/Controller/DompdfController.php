@@ -17,7 +17,7 @@ class DompdfController extends AbstractController
     public function index(FormulaireRepository $formulaire)
     {
         // configure Dompdf with option 
-
+        // donnee repository 
         $repository = $formulaire->findAll();
 
         // dump($repository);die;
@@ -29,7 +29,8 @@ class DompdfController extends AbstractController
         $dompdf = new Dompdf($pdfOptions);
 
          $html = $this->renderView('dompdf/mypdf.html.twig', [
-            'title' => "Welcome to our PDF Test"
+            'dodos' => $repository,
+            'title' => "the best"
         ]);
 
         // Load HTML to Dompdf
