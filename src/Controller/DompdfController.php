@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\MessageGenerator;
 use App\Repository\FormulaireRepository; 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,10 +15,16 @@ class DompdfController extends AbstractController
     /**
      * @Route("/dompdf", name="dompdf")
      */
-    public function index(FormulaireRepository $formulaire)
+    public function index(FormulaireRepository $formulaire, MessageGenerator $messageGenerator)
+
     {
+
+        $message = $messageGenerator->getHappyMessage();
         // configure Dompdf with option 
         // donnee repository 
+
+
+
         $repository = $formulaire->findAll();
 
         // dump($repository);die;
@@ -30,7 +37,9 @@ class DompdfController extends AbstractController
 
          $html = $this->renderView('dompdf/mypdf.html.twig', [
             'dodos' => $repository,
-            'title' => "the best"
+            'title' => "the best",
+            'message' => $message,
+            'Roro' => $messageGenerator->getDodo()
         ]);
 
         // Load HTML to Dompdf
