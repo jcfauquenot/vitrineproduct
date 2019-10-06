@@ -1,3 +1,3 @@
-# vitrineproduct
+# products with api platform
 
-Small project reserve room
+Small project and test with api/plaform 
