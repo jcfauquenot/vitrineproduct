@@ -1,7 +1,7 @@
-{% block title %}Hello ForumaireController!{% endblock %}
-
+{% block title %}Hello FormulaireController!{% endblock %}
 {% block body %}
 {{ form_start(forme)}}
 {{ form_widget(forme)}}
+    <button class="button">{{ button_label|default('Save') }}</button>
 {{ form_end(forme)}}
 {% endblock %}

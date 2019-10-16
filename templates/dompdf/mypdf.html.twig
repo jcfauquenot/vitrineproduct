@@ -5,9 +5,10 @@
         <meta charset="UTF-8">
         <title>Title of the PDF</title>
     </head>
+    <!--suppress SyntaxError -->
     <body>
         <h1>{{ title }}</h1>
-        <h2>{{ message }}<h2>
+        <h2>{{ message }}</h2>
         {% for dodo in dodos %}
         <ul>
         <li>{{ dodo.name}}</li>
@@ -17,6 +18,5 @@
         <p>Cillum pariatur deserunt exercitation ut esse proident laborum id excepteur. Duis duis nulla in excepteur Lorem. Mollit sit dolor ad commodo quis mollit labore veniam aliqua. Minim proident et eu eu enim pariatur eiusmod consequat officia pariatur proident enim.</p>
         </ul>
         {% endfor %}
-
     </body>
 </html>
